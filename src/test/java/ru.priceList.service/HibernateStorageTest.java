@@ -18,8 +18,7 @@ public class HibernateStorageTest {
 
     @Test
     public void testCreate() throws Exception {
-       // ObjectMapper mapper = new ObjectMapper();
-      /*  SessionFactory sessionFactory =  HibernateUtil.getSessionFactory();
+        SessionFactory sessionFactory =  HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
 
         String parCategoryName = "Printer";
@@ -49,8 +48,7 @@ public class HibernateStorageTest {
             session.close();
             sessionFactory.close();
 
-        }*/
-
+        }
     }
 
 }

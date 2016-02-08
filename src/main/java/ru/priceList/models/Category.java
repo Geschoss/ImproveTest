@@ -2,22 +2,26 @@ package ru.priceList.models;
 
 import javax.persistence.*;
 
-/**
- *  ласс описывающий категорию товара в базе данных
- *@author pe.kolomnikov
- */
+
 @Entity
 @Table(name="cat")
-public class Category extends Base {
+public class Category {
+    @Column(name = "id")
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     @Column(name = "name")
     private String name;
 
-    public Category(int id) {
-        super(id);
-    }
     public Category() {
-        super();
+
     }
 
     public String getName() {

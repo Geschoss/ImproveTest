@@ -3,14 +3,12 @@ package ru.priceList.models;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-/**
- * Класс описывающий товар в базе данных
- * @author pe.kolomnikov
- */
+
 @Entity
 @Table(name="prod")
-public class Product extends Base{
-
+public class Product{
+    @Column(name = "id")
+    private int id;
     @Column(name = "name")
     private String name;
     @Column(name = "price")
@@ -18,14 +16,18 @@ public class Product extends Base{
     @JoinColumn(name="cat_id",referencedColumnName = "id")
     private Category category;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public Product() {
-        super();
+
     }
 
-
-    public Product( int id) {
-        super(id);
-    }
 
     public String getName() {
         return name;
