@@ -20,11 +20,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 
-/**
- * Основной класс для обработки и поиска данных
- * @author pe.kolomnikov
- * @version 1.0
- */
+
 public class FindDataFromPriceList extends HttpServlet {
     private final SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
     private List<Product> product_list;
@@ -33,9 +29,7 @@ public class FindDataFromPriceList extends HttpServlet {
     private BigDecimal parPriceFrom;
     private BigDecimal parPriceTo;
 
-    /**
-     *закрывает фабрику подключение Hibernate
-     */
+
     @Override
     public void destroy() {
         super.destroy();
@@ -59,10 +53,7 @@ public class FindDataFromPriceList extends HttpServlet {
         resp.getWriter().write(new ObjectMapper().writeValueAsString(product_list));
     }
 
-    /**
-     * Создает параметры(в нужных типах) для запроса из строк от клиента
-     * @param req входной поток
-     */
+
     private void creatingVariables(HttpServletRequest req) {
         fullName = req.getParameter("name");
         category = req.getParameter("category");
@@ -77,13 +68,7 @@ public class FindDataFromPriceList extends HttpServlet {
         }
     }
 
-    /**
-     * Функция подулючается к базе и получает список товара по переданным ей параметрам
-     * @param parProductName
-     * @param parCategoryName
-     * @param parPriceFrom
-     * @param parPriceTo
-     */
+
     private void findProductFromBD(String parProductName, String parCategoryName, BigDecimal parPriceFrom, BigDecimal parPriceTo) {
 
         Session session = sessionFactory.openSession();
